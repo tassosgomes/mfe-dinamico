@@ -89,16 +89,14 @@ Esta POC demonstra que é possível carregar **apenas** os remotes que o usuári
 # 1. Clonar o repositório
 cd mfe-dinamico
 
-# 2. Rodar setup automático
-./scripts/setup.sh
+# 2. Subir o Keycloak via Docker Compose
+docker compose up -d
 
-# 3. Importar Keycloak realm (se não auto-importado)
-# Acesse http://localhost:8080
-# Login: admin/admin
-# Create Realm → Import → infrastructure/keycloak/realms/mfe-poc-realm.json
+# 3. (Opcional) Forçar setup via script se o realm não foi importado
+node infrastructure/keycloak/setup-script.js
 
-# 4. Iniciar desenvolvimento
-./scripts/dev.sh
+# 4. Iniciar desenvolvimento (quando as apps existirem)
+# ./scripts/dev.sh
 ```
 
 ### Acessar Aplicações
@@ -106,6 +104,17 @@ cd mfe-dinamico
 - **Host App:** http://localhost:5173
 - **Keycloak Admin:** http://localhost:8080 (admin/admin)
 - **Backend API:** http://localhost:3000/health
+
+### Realm e usuários de teste
+
+O realm é importado automaticamente a partir de [infrastructure/keycloak/realm-export.json](infrastructure/keycloak/realm-export.json)
+com as seguintes roles e usuários:
+
+| Usuário | Email | Senha | Role |
+|---------|-------|-------|------|
+| anadmin | ana@corp.com | admin123 | ADMIN |
+| carlossales | carlos@corp.com | sales123 | SALES |
+| joaouser | joao@corp.com | user123 | USER |
 
 ### Testar com Diferentes Roles
 

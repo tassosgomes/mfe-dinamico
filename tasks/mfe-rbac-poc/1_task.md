@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 parallelizable: false
 blocked_by: []
 ---
@@ -13,7 +13,7 @@ blocked_by: []
 <unblocks>"4.0"</unblocks>
 </task_context>
 
-# Tarefa 1.0: Configuração da Infraestrutura Base (Docker + Keycloak)
+# Tarefa 1.0: Configuração da Infraestrutura Base (Docker + Keycloak) ✅ CONCLUÍDA
 
 ## Visão Geral
 
@@ -32,16 +32,16 @@ Configurar a infraestrutura base necessária para o projeto, incluindo Docker Co
 
 ## Subtarefas
 
-- [ ] 1.1 Criar estrutura de diretórios `infrastructure/keycloak/` e `infrastructure/docker/`
-- [ ] 1.2 Criar arquivo `docker-compose.yml` na raiz com serviço Keycloak
-- [ ] 1.3 Criar script `infrastructure/keycloak/setup-script.js` para configuração automatizada
-- [ ] 1.4 Criar arquivo `infrastructure/keycloak/realm-export.json` com configuração do realm
-- [ ] 1.5 Configurar client "mfe-host-client" como Public Client com PKCE
-- [ ] 1.6 Criar roles: ADMIN, SALES, USER no realm
-- [ ] 1.7 Criar usuários de teste com roles atribuídas
-- [ ] 1.8 Criar arquivo `.env.example` com variáveis de ambiente
-- [ ] 1.9 Atualizar `README.md` com instruções de setup
-- [ ] 1.10 Testar: `docker compose up` e verificar Keycloak acessível em http://localhost:8080
+- [x] 1.1 Criar estrutura de diretórios `infrastructure/keycloak/` e `infrastructure/docker/`
+- [x] 1.2 Criar arquivo `docker-compose.yml` na raiz com serviço Keycloak
+- [x] 1.3 Criar script `infrastructure/keycloak/setup-script.js` para configuração automatizada
+- [x] 1.4 Criar arquivo `infrastructure/keycloak/realm-export.json` com configuração do realm
+- [x] 1.5 Configurar client "mfe-host-client" como Public Client com PKCE
+- [x] 1.6 Criar roles: ADMIN, SALES, USER no realm
+- [x] 1.7 Criar usuários de teste com roles atribuídas
+- [x] 1.8 Criar arquivo `.env.example` com variáveis de ambiente
+- [x] 1.9 Atualizar `README.md` com instruções de setup
+- [x] 1.10 Testar: `docker compose up` e verificar Keycloak acessível em http://localhost:8080
 
 ## Sequenciamento
 
@@ -94,10 +94,10 @@ services:
 
 ## Critérios de Sucesso
 
-- [ ] `docker compose up` inicia Keycloak sem erros
-- [ ] Console admin Keycloak acessível em http://localhost:8080/admin
-- [ ] Realm "mfe-poc" existe e está configurado
-- [ ] Client "mfe-host-client" existe com configuração correta
-- [ ] Roles ADMIN, SALES, USER existem no realm
-- [ ] Usuários de teste conseguem fazer login
-- [ ] Endpoint de discovery OIDC responde: http://localhost:8080/realms/mfe-poc/.well-known/openid-configuration
+- [x] `docker compose up` inicia Keycloak sem erros
+- [x] Console admin Keycloak acessível em http://localhost:8080/admin
+- [x] Realm "mfe-poc" existe e está configurado
+- [x] Client "mfe-host-client" existe com configuração correta
+- [x] Roles ADMIN, SALES, USER existem no realm
+- [x] Usuários de teste conseguem fazer login
+- [x] Endpoint de discovery OIDC responde: http://localhost:8080/realms/mfe-poc/.well-known/openid-configuration

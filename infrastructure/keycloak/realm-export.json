@@ -1,0 +1,80 @@
+{
+  "realm": "mfe-poc",
+  "enabled": true,
+  "displayName": "MFE POC",
+  "sslRequired": "external",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "roles": {
+    "realm": [
+      { "name": "ADMIN" },
+      { "name": "SALES" },
+      { "name": "USER" }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "mfe-host-client",
+      "name": "MFE Host Client",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "redirectUris": [
+        "http://localhost:5173/*",
+        "http://localhost:5174/*"
+      ],
+      "webOrigins": [
+        "http://localhost:5173",
+        "http://localhost:5174"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "oauth2.device.authorization.grant.enabled": "false"
+      }
+    }
+  ],
+  "users": [
+    {
+      "username": "anadmin",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Ana",
+      "lastName": "Admin",
+      "email": "ana@corp.com",
+      "credentials": [
+        { "type": "password", "value": "admin123", "temporary": false }
+      ],
+      "realmRoles": ["ADMIN"]
+    },
+    {
+      "username": "carlossales",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Carlos",
+      "lastName": "Sales",
+      "email": "carlos@corp.com",
+      "credentials": [
+        { "type": "password", "value": "sales123", "temporary": false }
+      ],
+      "realmRoles": ["SALES"]
+    },
+    {
+      "username": "joaouser",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "João",
+      "lastName": "User",
+      "email": "joao@corp.com",
+      "credentials": [
+        { "type": "password", "value": "user123", "temporary": false }
+      ],
+      "realmRoles": ["USER"]
+    }
+  ]
+}
