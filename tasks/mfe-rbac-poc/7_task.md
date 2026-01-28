@@ -1,5 +1,5 @@
 ---
-status: pending
+status: done
 parallelizable: true
 blocked_by: ["5.0"]
 ---
@@ -32,25 +32,25 @@ Implementar o micro-frontend Sales Remote, acessível para usuários com role SA
 
 ## Subtarefas
 
-- [ ] 7.1 Criar estrutura de diretórios `sales-remote/`
-- [ ] 7.2 Inicializar projeto Vite + React + TypeScript
-- [ ] 7.3 Instalar @module-federation/enhanced
-- [ ] 7.4 Configurar Module Federation no vite.config.ts (expor ./SalesApp)
-- [ ] 7.5 Criar `src/guards/RoleGuard.tsx` para validação de roles SALES/ADMIN
-- [ ] 7.6 Criar `src/components/AccessDenied.tsx` para acesso negado
-- [ ] 7.7 Criar `src/components/ErrorBoundary.tsx` para erros internos
-- [ ] 7.8 Criar `src/pages/Dashboard.tsx` com visão geral de vendas
-- [ ] 7.9 Criar `src/components/SalesChart.tsx` com gráfico de vendas
-- [ ] 7.10 Criar `src/components/RankingTable.tsx` com ranking de vendedores
-- [ ] 7.11 Criar `src/pages/Reports.tsx` com relatórios detalhados
-- [ ] 7.12 Criar `src/App.tsx` com rotas internas do remote
-- [ ] 7.13 Criar `src/main.tsx` para desenvolvimento standalone
-- [ ] 7.14 Configurar shared dependencies (react, react-dom, react-router-dom)
-- [ ] 7.15 Testar: remote inicia standalone em http://localhost:5175
-- [ ] 7.16 Testar: módulo ./SalesApp é exposto corretamente
-- [ ] 7.17 Testar: RoleGuard permite SALES e ADMIN
-- [ ] 7.18 Testar: gráfico de vendas renderiza corretamente
-- [ ] 7.19 Testar: ranking de vendedores exibe dados
+- [x] 7.1 Criar estrutura de diretórios `sales-remote/`
+- [x] 7.2 Inicializar projeto Vite + React + TypeScript
+- [x] 7.3 Instalar @module-federation/enhanced
+- [x] 7.4 Configurar Module Federation no vite.config.ts (expor ./SalesApp)
+- [x] 7.5 Criar `src/guards/RoleGuard.tsx` para validação de roles SALES/ADMIN
+- [x] 7.6 Criar `src/components/AccessDenied.tsx` para acesso negado
+- [x] 7.7 Criar `src/components/ErrorBoundary.tsx` para erros internos
+- [x] 7.8 Criar `src/pages/Dashboard.tsx` com visão geral de vendas
+- [x] 7.9 Criar `src/components/SalesChart.tsx` com gráfico de vendas
+- [x] 7.10 Criar `src/components/RankingTable.tsx` com ranking de vendedores
+- [x] 7.11 Criar `src/pages/Reports.tsx` com relatórios detalhados
+- [x] 7.12 Criar `src/App.tsx` com rotas internas do remote
+- [x] 7.13 Criar `src/main.tsx` para desenvolvimento standalone
+- [x] 7.14 Configurar shared dependencies (react, react-dom, react-router-dom)
+- [x] 7.15 Testar: remote inicia standalone em http://localhost:5175
+- [x] 7.16 Testar: módulo ./SalesApp é exposto corretamente
+- [x] 7.17 Testar: RoleGuard permite SALES e ADMIN
+- [x] 7.18 Testar: gráfico de vendas renderiza corretamente
+- [x] 7.19 Testar: ranking de vendedores exibe dados
 
 ## Sequenciamento
 
@@ -260,13 +260,13 @@ export function Dashboard({ authContext }: { authContext: AuthContext }) {
 
 ## Critérios de Sucesso
 
-- [ ] Remote inicia standalone em http://localhost:5175
-- [ ] `remoteEntry.js` é gerado e acessível
-- [ ] Módulo `./SalesApp` é exportado corretamente
-- [ ] RoleGuard permite acesso para SALES e ADMIN
-- [ ] Usuário USER vê "Access Denied"
-- [ ] Dashboard exibe gráfico de vendas
-- [ ] Ranking de vendedores renderiza tabela completa
-- [ ] Rotas internas (/sales/reports) funcionam
-- [ ] Error Boundary captura erros internos
-- [ ] Shared dependencies são consumidas do Host
+- [x] Remote inicia standalone em http://localhost:5175
+- [x] `remoteEntry.js` é gerado e acessível
+- [x] Módulo `./SalesApp` é exportado corretamente
+- [x] RoleGuard permite acesso para SALES e ADMIN
+- [x] Usuário USER vê "Access Denied"
+- [x] Dashboard exibe gráfico de vendas
+- [x] Ranking de vendedores renderiza tabela completa
+- [x] Rotas internas (/sales/reports) funcionam
+- [x] Error Boundary captura erros internos
+- [x] Shared dependencies são consumidas do Host
