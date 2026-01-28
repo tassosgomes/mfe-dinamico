@@ -5,5 +5,8 @@
   "types": "types/index.ts",
   "files": [
     "types"
-  ]
+  ],
+  "devDependencies": {
+    "@types/react": "^18.2.60"
+  }
 }

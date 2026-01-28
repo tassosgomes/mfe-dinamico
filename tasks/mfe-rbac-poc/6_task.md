@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 parallelizable: true
 blocked_by: ["5.0"]
 ---
@@ -13,7 +13,7 @@ blocked_by: ["5.0"]
 <unblocks>"9.0"</unblocks>
 </task_context>
 
-# Tarefa 6.0: Admin Remote (Micro-Frontend)
+# Tarefa 6.0: Admin Remote (Micro-Frontend) ✅ CONCLUÍDA
 
 ## Visão Geral
 
@@ -34,26 +34,26 @@ Implementar o micro-frontend Admin Remote, acessível apenas para usuários com 
 
 ## Subtarefas
 
-- [ ] 6.1 Criar estrutura de diretórios `admin-remote/`
-- [ ] 6.2 Inicializar projeto Vite + React + TypeScript
-- [ ] 6.3 Instalar @module-federation/enhanced
-- [ ] 6.4 Configurar Module Federation no vite.config.ts (expor ./AdminApp)
-- [ ] 6.5 Criar `src/guards/RoleGuard.tsx` para validação de role ADMIN
-- [ ] 6.6 Criar `src/components/AccessDenied.tsx` para acesso negado
-- [ ] 6.7 Criar `src/components/ErrorBoundary.tsx` para erros internos
-- [ ] 6.8 Criar `src/pages/Dashboard.tsx` com visão geral do sistema
-- [ ] 6.9 Criar `src/pages/Users.tsx` com lista de usuários
-- [ ] 6.10 Criar `src/components/UsersList.tsx` com tabela de usuários
-- [ ] 6.11 Criar `src/pages/Settings.tsx` com configurações do sistema
-- [ ] 6.12 Criar `src/components/SystemSettings.tsx` com formulário de config
-- [ ] 6.13 Criar `src/App.tsx` com rotas internas do remote
-- [ ] 6.14 Criar `src/main.tsx` para desenvolvimento standalone
-- [ ] 6.15 Configurar shared dependencies (react, react-dom, react-router-dom)
-- [ ] 6.16 Testar: remote inicia standalone em http://localhost:5174
-- [ ] 6.17 Testar: módulo ./AdminApp é exposto corretamente
-- [ ] 6.18 Testar: RoleGuard bloqueia usuário sem role ADMIN
-- [ ] 6.19 Testar: lista de usuários renderiza corretamente
-- [ ] 6.20 Testar: configurações do sistema funcionam
+- [x] 6.1 Criar estrutura de diretórios `admin-remote/`
+- [x] 6.2 Inicializar projeto Vite + React + TypeScript
+- [x] 6.3 Instalar @module-federation/enhanced
+- [x] 6.4 Configurar Module Federation no vite.config.ts (expor ./AdminApp)
+- [x] 6.5 Criar `src/guards/RoleGuard.tsx` para validação de role ADMIN
+- [x] 6.6 Criar `src/components/AccessDenied.tsx` para acesso negado
+- [x] 6.7 Criar `src/components/ErrorBoundary.tsx` para erros internos
+- [x] 6.8 Criar `src/pages/Dashboard.tsx` com visão geral do sistema
+- [x] 6.9 Criar `src/pages/Users.tsx` com lista de usuários
+- [x] 6.10 Criar `src/components/UsersList.tsx` com tabela de usuários
+- [x] 6.11 Criar `src/pages/Settings.tsx` com configurações do sistema
+- [x] 6.12 Criar `src/components/SystemSettings.tsx` com formulário de config
+- [x] 6.13 Criar `src/App.tsx` com rotas internas do remote
+- [x] 6.14 Criar `src/main.tsx` para desenvolvimento standalone
+- [x] 6.15 Configurar shared dependencies (react, react-dom, react-router-dom)
+- [x] 6.16 Testar: remote inicia standalone em http://localhost:5174
+- [x] 6.17 Testar: módulo ./AdminApp é exposto corretamente
+- [x] 6.18 Testar: RoleGuard bloqueia usuário sem role ADMIN
+- [x] 6.19 Testar: lista de usuários renderiza corretamente
+- [x] 6.20 Testar: configurações do sistema funcionam
 
 ## Sequenciamento
 
@@ -222,14 +222,14 @@ export function UsersList() {
 
 ## Critérios de Sucesso
 
-- [ ] Remote inicia standalone em http://localhost:5174
-- [ ] `remoteEntry.js` é gerado e acessível
-- [ ] Módulo `./AdminApp` é exportado corretamente
-- [ ] RoleGuard valida role ADMIN antes de renderizar
-- [ ] Usuário sem role ADMIN vê "Access Denied"
-- [ ] Dashboard exibe estatísticas do sistema
-- [ ] Lista de usuários renderiza tabela completa
-- [ ] Configurações do sistema exibem formulário
-- [ ] Error Boundary captura erros internos
-- [ ] Rotas internas (/admin/users, /admin/settings) funcionam
-- [ ] Shared dependencies são consumidas do Host
+- [x] Remote inicia standalone em http://localhost:5174
+- [x] `remoteEntry.js` é gerado e acessível
+- [x] Módulo `./AdminApp` é exportado corretamente
+- [x] RoleGuard valida role ADMIN antes de renderizar
+- [x] Usuário sem role ADMIN vê "Access Denied"
+- [x] Dashboard exibe estatísticas do sistema
+- [x] Lista de usuários renderiza tabela completa
+- [x] Configurações do sistema exibem formulário
+- [x] Error Boundary captura erros internos
+- [x] Rotas internas (/admin/users, /admin/settings) funcionam
+- [x] Shared dependencies são consumidas do Host
