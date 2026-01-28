@@ -1,0 +1,37 @@
+import type { RemoteConfigEntry } from '../types';
+
+export const REMOTES_CONFIG: RemoteConfigEntry[] = [
+  {
+    remoteName: 'admin_app',
+    remoteEntry: 'http://localhost:5174/remoteEntry.js',
+    exposedModule: './AdminApp',
+    routePath: '/admin',
+    navigationLabel: 'Administração',
+    requiredRoles: ['ADMIN'],
+    icon: 'shield',
+    version: '1.0.0',
+    enabled: true,
+  },
+  {
+    remoteName: 'sales_app',
+    remoteEntry: 'http://localhost:5175/remoteEntry.js',
+    exposedModule: './SalesApp',
+    routePath: '/sales',
+    navigationLabel: 'Vendas',
+    requiredRoles: ['SALES', 'ADMIN'],
+    icon: 'chart',
+    version: '1.0.0',
+    enabled: true,
+  },
+  {
+    remoteName: 'user_app',
+    remoteEntry: 'http://localhost:5176/remoteEntry.js',
+    exposedModule: './UserApp',
+    routePath: '/user',
+    navigationLabel: 'Meu Perfil',
+    requiredRoles: [],
+    icon: 'user',
+    version: '1.0.0',
+    enabled: true,
+  },
+];

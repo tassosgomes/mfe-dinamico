@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 parallelizable: false
 blocked_by: ["2.0"]
 ---
@@ -36,26 +36,26 @@ Implementar o Backend API em Node.js/Express que funciona como Manifest Service.
 
 ## Subtarefas
 
-- [ ] 3.1 Criar estrutura de diretórios `backend/`
-- [ ] 3.2 Inicializar projeto Node.js com TypeScript (`package.json`, `tsconfig.json`)
-- [ ] 3.3 Instalar dependências: express, cors, helmet, jsonwebtoken, jwks-rsa, dotenv
-- [ ] 3.4 Criar `src/types/index.ts` com tipos específicos do backend
-- [ ] 3.5 Criar `src/config/index.ts` com configurações de ambiente
-- [ ] 3.6 Criar `src/config/keycloak.config.ts` com configuração do Keycloak
-- [ ] 3.7 Criar `src/config/remotes.config.ts` com configuração dos remotes
-- [ ] 3.8 Criar `src/services/jwt.service.ts` para validação de JWT
-- [ ] 3.9 Criar `src/services/manifest.service.ts` para filtragem de remotes
-- [ ] 3.10 Criar `src/middleware/auth.middleware.ts` para autenticação
-- [ ] 3.11 Criar `src/middleware/cors.middleware.ts` para configuração CORS
-- [ ] 3.12 Criar `src/middleware/error.middleware.ts` para tratamento de erros
-- [ ] 3.13 Criar `src/routes/config.routes.ts` com endpoint POST /api/config/remotes
-- [ ] 3.14 Criar `src/routes/health.routes.ts` com endpoint GET /health
-- [ ] 3.15 Criar `src/utils/logger.ts` para logging de auditoria
-- [ ] 3.16 Criar `src/server.ts` como entry point da aplicação
-- [ ] 3.17 Criar scripts npm: `dev`, `build`, `start`
-- [ ] 3.18 Testar: endpoint /health retorna 200
-- [ ] 3.19 Testar: endpoint /api/config/remotes retorna 401 sem token
-- [ ] 3.20 Testar: endpoint /api/config/remotes retorna manifesto com token válido
+- [x] 3.1 Criar estrutura de diretórios `backend/` ✅
+- [x] 3.2 Inicializar projeto Node.js com TypeScript (`package.json`, `tsconfig.json`) ✅
+- [x] 3.3 Instalar dependências: express, cors, helmet, jsonwebtoken, jwks-rsa, dotenv ✅
+- [x] 3.4 Criar `src/types/index.ts` com tipos específicos do backend ✅
+- [x] 3.5 Criar `src/config/index.ts` com configurações de ambiente ✅
+- [x] 3.6 Criar `src/config/keycloak.config.ts` com configuração do Keycloak ✅
+- [x] 3.7 Criar `src/config/remotes.config.ts` com configuração dos remotes ✅
+- [x] 3.8 Criar `src/services/jwt.service.ts` para validação de JWT ✅
+- [x] 3.9 Criar `src/services/manifest.service.ts` para filtragem de remotes ✅
+- [x] 3.10 Criar `src/middleware/auth.middleware.ts` para autenticação ✅
+- [x] 3.11 Criar `src/middleware/cors.middleware.ts` para configuração CORS ✅
+- [x] 3.12 Criar `src/middleware/error.middleware.ts` para tratamento de erros ✅
+- [x] 3.13 Criar `src/routes/config.routes.ts` com endpoint POST /api/config/remotes ✅
+- [x] 3.14 Criar `src/routes/health.routes.ts` com endpoint GET /health ✅
+- [x] 3.15 Criar `src/utils/logger.ts` para logging de auditoria ✅
+- [x] 3.16 Criar `src/server.ts` como entry point da aplicação ✅
+- [x] 3.17 Criar scripts npm: `dev`, `build`, `start` ✅
+- [x] 3.18 Testar: endpoint /health retorna 200 ✅
+- [x] 3.19 Testar: endpoint /api/config/remotes retorna 401 sem token ✅
+- [x] 3.20 Testar: endpoint /api/config/remotes retorna manifesto com token válido ✅
 
 ## Sequenciamento
 
@@ -150,13 +150,13 @@ const allowedOrigins = [
 
 ## Critérios de Sucesso
 
-- [ ] Servidor inicia sem erros em http://localhost:3001
-- [ ] GET /health retorna `{ status: 'ok' }` com HTTP 200
-- [ ] POST /api/config/remotes sem token retorna HTTP 401
-- [ ] POST /api/config/remotes com token expirado retorna HTTP 401
-- [ ] POST /api/config/remotes com token ADMIN retorna 3 remotes
-- [ ] POST /api/config/remotes com token SALES retorna 2 remotes
-- [ ] POST /api/config/remotes com token USER retorna 1 remote
-- [ ] CORS rejeita origens não permitidas
-- [ ] Logs de auditoria são gerados para cada request
-- [ ] Tempo de resposta < 500ms para validação de token
+- [x] Servidor inicia sem erros em http://localhost:3001 ✅
+- [x] GET /health retorna `{ status: 'ok' }` com HTTP 200 ✅
+- [x] POST /api/config/remotes sem token retorna HTTP 401 ✅
+- [x] POST /api/config/remotes com token expirado retorna HTTP 401 ✅
+- [x] POST /api/config/remotes com token ADMIN retorna 3 remotes ✅
+- [x] POST /api/config/remotes com token SALES retorna 2 remotes ✅
+- [x] POST /api/config/remotes com token USER retorna 1 remote ✅
+- [x] CORS rejeita origens não permitidas ✅
+- [x] Logs de auditoria são gerados para cada request ✅
+- [x] Tempo de resposta < 500ms para validação de token ✅
