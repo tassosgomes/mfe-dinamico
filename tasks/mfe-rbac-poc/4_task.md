@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 parallelizable: false
 blocked_by: ["1.0", "2.0"]
 ---
@@ -13,7 +13,7 @@ blocked_by: ["1.0", "2.0"]
 <unblocks>"5.0"</unblocks>
 </task_context>
 
-# Tarefa 4.0: Host Application - Autenticação OIDC
+# Tarefa 4.0: Host Application - Autenticação OIDC ✅ CONCLUÍDA
 
 ## Visão Geral
 
@@ -37,26 +37,26 @@ Implementar a autenticação OIDC no Host Application usando oidc-client-ts. Est
 
 ## Subtarefas
 
-- [ ] 4.1 Criar estrutura de diretórios `host/`
-- [ ] 4.2 Inicializar projeto Vite + React + TypeScript
-- [ ] 4.3 Instalar dependências: oidc-client-ts, react-router-dom
-- [ ] 4.4 Configurar Vite (`vite.config.ts`) com porta 5173
-- [ ] 4.5 Criar `src/auth/oidc-config.ts` com configuração do OIDC
-- [ ] 4.6 Criar `src/utils/EventBus.ts` para comunicação de eventos de auth
-- [ ] 4.7 Criar `src/contexts/AuthContext.tsx` com provider de autenticação
-- [ ] 4.8 Implementar hook `useAuthContext()` para consumo do contexto
-- [ ] 4.9 Criar `src/pages/Callback.tsx` para processar redirect do Keycloak
-- [ ] 4.10 Criar `src/pages/SilentRenew.tsx` para silent refresh
-- [ ] 4.11 Implementar silent refresh automático (1 minuto antes da expiração)
-- [ ] 4.12 Implementar função de logout com limpeza de tokens
-- [ ] 4.13 Criar `src/components/ProtectedRoute.tsx` para rotas protegidas
-- [ ] 4.14 Criar `src/pages/Login.tsx` com botão de login
-- [ ] 4.15 Criar `src/App.tsx` básico com rotas de auth
-- [ ] 4.16 Criar `src/main.tsx` com providers
-- [ ] 4.17 Testar: fluxo de login completo com Keycloak
-- [ ] 4.18 Testar: logout redireciona para Keycloak
-- [ ] 4.19 Testar: silent refresh renova tokens automaticamente
-- [ ] 4.20 Testar: tokens são armazenados apenas em memória (não localStorage)
+- [x] 4.1 Criar estrutura de diretórios `host/`
+- [x] 4.2 Inicializar projeto Vite + React + TypeScript
+- [x] 4.3 Instalar dependências: oidc-client-ts, react-router-dom
+- [x] 4.4 Configurar Vite (`vite.config.ts`) com porta 5173
+- [x] 4.5 Criar `src/auth/oidc-config.ts` com configuração do OIDC
+- [x] 4.6 Criar `src/utils/EventBus.ts` para comunicação de eventos de auth
+- [x] 4.7 Criar `src/contexts/AuthContext.tsx` com provider de autenticação
+- [x] 4.8 Implementar hook `useAuthContext()` para consumo do contexto
+- [x] 4.9 Criar `src/pages/Callback.tsx` para processar redirect do Keycloak
+- [x] 4.10 Criar `src/pages/SilentRenew.tsx` para silent refresh
+- [x] 4.11 Implementar silent refresh automático (1 minuto antes da expiração)
+- [x] 4.12 Implementar função de logout com limpeza de tokens
+- [x] 4.13 Criar `src/components/ProtectedRoute.tsx` para rotas protegidas
+- [x] 4.14 Criar `src/pages/Login.tsx` com botão de login
+- [x] 4.15 Criar `src/App.tsx` básico com rotas de auth
+- [x] 4.16 Criar `src/main.tsx` com providers
+- [x] 4.17 Testar: fluxo de login completo com Keycloak
+- [x] 4.18 Testar: logout redireciona para Keycloak
+- [x] 4.19 Testar: silent refresh renova tokens automaticamente
+- [x] 4.20 Testar: tokens são armazenados apenas em memória (não localStorage)
 
 ## Sequenciamento
 
@@ -170,13 +170,13 @@ function extractUserProfile(oidcUser: User): UserProfile {
 
 ## Critérios de Sucesso
 
-- [ ] App inicia em http://localhost:5173 sem erros
-- [ ] Botão de login redireciona para Keycloak
-- [ ] Callback processa code e obtém tokens
-- [ ] Usuário autenticado tem dados disponíveis no AuthContext
-- [ ] Roles são extraídas corretamente do token
-- [ ] Silent refresh funciona automaticamente
-- [ ] Logout redireciona para Keycloak e limpa sessão
-- [ ] Tokens NÃO são armazenados em localStorage
-- [ ] Event Bus emite eventos de auth (login, logout, token_refreshed)
-- [ ] Rota protegida redireciona para login se não autenticado
+- [x] App inicia em http://localhost:5173 sem erros
+- [x] Botão de login redireciona para Keycloak
+- [x] Callback processa code e obtém tokens
+- [x] Usuário autenticado tem dados disponíveis no AuthContext
+- [x] Roles são extraídas corretamente do token
+- [x] Silent refresh funciona automaticamente
+- [x] Logout redireciona para Keycloak e limpa sessão
+- [x] Tokens NÃO são armazenados em localStorage
+- [x] Event Bus emite eventos de auth (login, logout, token_refreshed)
+- [x] Rota protegida redireciona para login se não autenticado
