@@ -14,3 +14,171 @@ body {
 button {
   cursor: pointer;
 }
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.app-header-subtitle {
+  display: block;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.app-header-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-header-user button {
+  background: #1d4ed8;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.user-name {
+  font-weight: 600;
+}
+
+.user-email {
+  font-size: 0.85rem;
+  color: #cbd5f5;
+}
+
+.app-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 0;
+}
+
+.app-sidebar {
+  background: #f1f5f9;
+  padding: 1.5rem;
+  border-right: 1px solid #e2e8f0;
+}
+
+.app-sidebar h2 {
+  margin-top: 0;
+}
+
+.app-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.app-sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #1f2937;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.app-sidebar a.active {
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.sidebar-status {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.app-content {
+  padding: 2rem;
+}
+
+.page {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 0;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 3px solid #cbd5f5;
+  border-top-color: #2563eb;
+  animation: spin 1s linear infinite;
+}
+
+.error-boundary {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #991b1b;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+}
+
+.alert {
+  border-radius: 0.75rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.alert.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.alert button {
+  margin-top: 0.75rem;
+  background: #991b1b;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .app-body {
+    grid-template-columns: 1fr;
+  }
+
+  .app-sidebar {
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+}

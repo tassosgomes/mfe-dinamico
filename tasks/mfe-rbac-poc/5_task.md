@@ -1,5 +1,5 @@
 ---
-status: pending
+status: done
 parallelizable: false
 blocked_by: ["3.0", "4.0"]
 ---
@@ -13,7 +13,7 @@ blocked_by: ["3.0", "4.0"]
 <unblocks>"6.0", "7.0", "8.0"</unblocks>
 </task_context>
 
-# Tarefa 5.0: Host Application - Dynamic Remote Loader e Navegação
+# Tarefa 5.0: Host Application - Dynamic Remote Loader e Navegação ✅ CONCLUÍDA
 
 ## Visão Geral
 
@@ -40,28 +40,28 @@ Implementar o carregamento dinâmico de remotes usando Module Federation Runtime
 
 ## Subtarefas
 
-- [ ] 5.1 Instalar @module-federation/enhanced
-- [ ] 5.2 Configurar Module Federation no vite.config.ts (como Host)
-- [ ] 5.3 Criar `src/contexts/ManifestContext.tsx` para armazenar manifesto
-- [ ] 5.4 Criar `src/services/manifest.service.ts` para chamar backend API
-- [ ] 5.5 Implementar retry com exponential backoff no manifest service
-- [ ] 5.6 Criar `src/loaders/DynamicRemoteLoader.tsx` usando Runtime API
-- [ ] 5.7 Implementar lazy loading com React.lazy e Suspense
-- [ ] 5.8 Implementar timeout configurável no loader (10s padrão)
-- [ ] 5.9 Criar `src/components/ErrorBoundary.tsx` para erros de remote
-- [ ] 5.10 Criar `src/components/Layout.tsx` com header e sidebar
-- [ ] 5.11 Criar `src/components/Sidebar.tsx` com menu dinâmico
-- [ ] 5.12 Criar `src/components/Header.tsx` com info do usuário e logout
-- [ ] 5.13 Criar `src/components/LoadingSpinner.tsx` para loading states
-- [ ] 5.14 Criar `src/pages/Home.tsx` como página inicial
-- [ ] 5.15 Criar `src/pages/NotFound.tsx` para rotas não encontradas
-- [ ] 5.16 Criar `src/pages/AccessDenied.tsx` para acesso negado
-- [ ] 5.17 Atualizar `src/App.tsx` com rotas dinâmicas
-- [ ] 5.18 Implementar lógica de inicialização do MF Runtime
-- [ ] 5.19 Testar: menu exibe remotes baseado nas roles do usuário
-- [ ] 5.20 Testar: navegação carrega remote dinamicamente
-- [ ] 5.21 Testar: erro de carregamento exibe Error Boundary
-- [ ] 5.22 Testar: retry funciona após falha de rede
+- [x] 5.1 Instalar @module-federation/enhanced ✅
+- [x] 5.2 Configurar Module Federation no vite.config.ts (como Host) ✅
+- [x] 5.3 Criar `src/contexts/ManifestContext.tsx` para armazenar manifesto ✅
+- [x] 5.4 Criar `src/services/manifest.service.ts` para chamar backend API ✅
+- [x] 5.5 Implementar retry com exponential backoff no manifest service ✅
+- [x] 5.6 Criar `src/loaders/DynamicRemoteLoader.tsx` usando Runtime API ✅
+- [x] 5.7 Implementar lazy loading com React.lazy e Suspense ✅
+- [x] 5.8 Implementar timeout configurável no loader (10s padrão) ✅
+- [x] 5.9 Criar `src/components/ErrorBoundary.tsx` para erros de remote ✅
+- [x] 5.10 Criar `src/components/Layout.tsx` com header e sidebar ✅
+- [x] 5.11 Criar `src/components/Sidebar.tsx` com menu dinâmico ✅
+- [x] 5.12 Criar `src/components/Header.tsx` com info do usuário e logout ✅
+- [x] 5.13 Criar `src/components/LoadingSpinner.tsx` para loading states ✅
+- [x] 5.14 Criar `src/pages/Home.tsx` como página inicial ✅
+- [x] 5.15 Criar `src/pages/NotFound.tsx` para rotas não encontradas ✅
+- [x] 5.16 Criar `src/pages/AccessDenied.tsx` para acesso negado ✅
+- [x] 5.17 Atualizar `src/App.tsx` com rotas dinâmicas ✅
+- [x] 5.18 Implementar lógica de inicialização do MF Runtime ✅
+- [x] 5.19 Testar: menu exibe remotes baseado nas roles do usuário ✅
+- [x] 5.20 Testar: navegação carrega remote dinamicamente ✅
+- [x] 5.21 Testar: erro de carregamento exibe Error Boundary ✅
+- [x] 5.22 Testar: retry funciona após falha de rede ✅
 
 ## Sequenciamento
 
@@ -248,15 +248,15 @@ function App() {
 
 ## Critérios de Sucesso
 
-- [ ] POST /api/config/remotes é chamado após login com Bearer token
-- [ ] Manifesto é armazenado no ManifestContext
-- [ ] Menu lateral exibe apenas remotes autorizados
-- [ ] Clique no menu navega para rota correta
-- [ ] Remote é carregado dinamicamente via Module Federation
-- [ ] Loading spinner aparece durante carregamento
-- [ ] Error Boundary captura erros de carregamento
-- [ ] Retry funciona com backoff exponencial
-- [ ] Timeout de 10s cancela carregamento lento
-- [ ] Acesso direto a URL não autorizada mostra AccessDenied
-- [ ] Rotas inexistentes mostram NotFound
-- [ ] Layout responsivo funciona em desktop e mobile
+- [x] POST /api/config/remotes é chamado após login com Bearer token ✅
+- [x] Manifesto é armazenado no ManifestContext ✅
+- [x] Menu lateral exibe apenas remotes autorizados ✅
+- [x] Clique no menu navega para rota correta ✅
+- [x] Remote é carregado dinamicamente via Module Federation ✅
+- [x] Loading spinner aparece durante carregamento ✅
+- [x] Error Boundary captura erros de carregamento ✅
+- [x] Retry funciona com backoff exponencial ✅
+- [x] Timeout de 10s cancela carregamento lento ✅
+- [x] Acesso direto a URL não autorizada mostra AccessDenied ✅
+- [x] Rotas inexistentes mostram NotFound ✅
+- [x] Layout responsivo funciona em desktop e mobile ✅

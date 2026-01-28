@@ -1,28 +1,18 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Callback } from './pages/Callback';
 import { Login } from './pages/Login';
 import { SilentRenew } from './pages/SilentRenew';
 import { ProtectedRoute } from './components/ProtectedRoute';
-import { useAuthContext } from './contexts/AuthContext';
-
-function Home() {
-  const { user, logout } = useAuthContext();
-
-  return (
-    <div style={{ padding: '2rem' }}>
-      <h1>Host Application</h1>
-      <p>Usuário autenticado:</p>
-      <pre style={{ background: '#111827', color: '#f9fafb', padding: '1rem' }}>
-        {JSON.stringify(user, null, 2)}
-      </pre>
-      <button onClick={() => void logout()} style={{ marginTop: '1rem' }}>
-        Sair
-      </button>
-    </div>
-  );
-}
+import { Layout } from './components/Layout';
+import { Home } from './pages/Home';
+import { AccessDenied } from './pages/AccessDenied';
+import { NotFound } from './pages/NotFound';
+import { useManifestContext } from './contexts/ManifestContext';
+import { DynamicRemoteLoader } from './loaders/DynamicRemoteLoader';
 
 export default function App() {
+  const { manifest } = useManifestContext();
+
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
@@ -32,11 +22,28 @@ export default function App() {
         path="/"
         element={
           <ProtectedRoute>
-            <Home />
+            <Layout />
           </ProtectedRoute>
         }
-      />
-      <Route path="*" element={<Navigate to="/" replace />} />
+      >
+        <Route index element={<Home />} />
+        {manifest?.remotes.map((remote) => (
+          <Route
+            key={remote.remoteName}
+            path={`${remote.routePath}/*`}
+            element={
+              <DynamicRemoteLoader
+                remoteName={remote.remoteName}
+                remoteEntry={remote.remoteEntry}
+                moduleName={remote.exposedModule}
+                routePath={remote.routePath}
+              />
+            }
+          />
+        ))}
+        <Route path="/access-denied" element={<AccessDenied />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
     </Routes>
   );
 }
