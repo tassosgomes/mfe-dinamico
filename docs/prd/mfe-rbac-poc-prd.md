@@ -635,18 +635,23 @@ app.use(cors({
 
 ### D1: Estrutura de Diretórios do Monorepo
 
-**Decisão:** Opção A (separação clara de responsabilidades)
+**Decisão:** Cada projeto deve ser criado em sua respectiva pasta na raiz do repositório.
+
+> **IMPORTANTE:** A estrutura de pastas segue o padrão abaixo. Cada projeto (host, backend, remotes) deve ser criado diretamente na raiz do repositório, em sua pasta dedicada.
 
 ```
-host/
-remotes/admin/
-remotes/sales/
-remotes/user/
-backend/
-docker/
+mfe-dinamico/
+├── host/                     # Host Application (React + Vite)
+├── backend/                  # Backend API - Manifest Service (Node.js + Express)
+├── admin-remote/             # Admin Remote - requer role ADMIN
+├── sales-remote/             # Sales Remote - requer role SALES ou ADMIN
+├── user-remote/              # User Remote - todos os autenticados
+├── shared/                   # Tipos e código compartilhado
+├── infrastructure/           # Docker, Keycloak configs
+└── docs/                     # Documentação
 ```
 
-**Justificativa:** Separação clara facilita deploy independente e ownership por equipes diferentes.
+**Justificativa:** Separação clara facilita deploy independente e ownership por equipes diferentes. Cada pasta é um projeto independente com seu próprio `package.json`.
 
 ### D2: Estratégia de Deploy Local
 

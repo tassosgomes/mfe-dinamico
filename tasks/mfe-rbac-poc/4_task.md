@@ -5,7 +5,7 @@ blocked_by: ["1.0", "2.0"]
 ---
 
 <task_context>
-<domain>apps/host</domain>
+<domain>host</domain>
 <type>implementation</type>
 <scope>core_feature</scope>
 <complexity>high</complexity>
@@ -37,7 +37,7 @@ Implementar a autenticação OIDC no Host Application usando oidc-client-ts. Est
 
 ## Subtarefas
 
-- [ ] 4.1 Criar estrutura de diretórios `apps/host/`
+- [ ] 4.1 Criar estrutura de diretórios `host/`
 - [ ] 4.2 Inicializar projeto Vite + React + TypeScript
 - [ ] 4.3 Instalar dependências: oidc-client-ts, react-router-dom
 - [ ] 4.4 Configurar Vite (`vite.config.ts`) com porta 5173
@@ -68,7 +68,7 @@ Implementar a autenticação OIDC no Host Application usando oidc-client-ts. Est
 
 ### Estrutura de Diretórios
 ```
-apps/host/
+host/
 ├── src/
 │   ├── auth/
 │   │   └── oidc-config.ts

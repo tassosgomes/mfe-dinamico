@@ -129,8 +129,8 @@ mfe-dinamico/
 cd /home/tsgomes/github-tassosgomes/mfe-dinamico
 
 # Criar estrutura de diretórios
-mkdir -p apps/{host,admin-remote,sales-remote,user-remote}
-mkdir -p services/backend-api/src/{routes,middleware,services,config}
+mkdir -p host/src admin-remote/src sales-remote/src user-remote/src
+mkdir -p backend/src/{routes,middleware,services,config}
 mkdir -p infrastructure/{docker,keycloak/realms,nginx}
 mkdir -p shared/{types,utils}
 mkdir -p docs/{prd,architecture,setup}
@@ -150,17 +150,20 @@ Crie `/home/tsgomes/github-tassosgomes/mfe-dinamico/package.json`:
   "private": true,
   "description": "MFE RBAC POC - Micro-frontends com Module Federation e Keycloak",
   "workspaces": [
-    "apps/*",
-    "services/*",
-    "shared/*"
+    "host",
+    "admin-remote",
+    "sales-remote",
+    "user-remote",
+    "backend",
+    "shared"
   ],
   "scripts": {
     "install:all": "npm install",
     "dev:infra": "docker-compose -f infrastructure/docker/docker-compose.yml up keycloak backend-api",
-    "dev:host": "npm run dev --workspace=apps/host",
-    "dev:admin": "npm run dev --workspace=apps/admin-remote",
-    "dev:sales": "npm run dev --workspace=apps/sales-remote",
-    "dev:user": "npm run dev --workspace=apps/user-remote",
+    "dev:host": "npm run dev --workspace=host",
+    "dev:admin": "npm run dev --workspace=admin-remote",
+    "dev:sales": "npm run dev --workspace=sales-remote",
+    "dev:user": "npm run dev --workspace=user-remote",
     "dev:all": "npm run dev:infra & npm run dev:host & npm run dev:admin & npm run dev:sales & npm run dev:user",
     "build:all": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present"
@@ -247,7 +250,7 @@ services:
       keycloak:
         condition: service_healthy
     volumes:
-      - ../../services/backend-api:/app
+      - ../../backend:/app
       - /app/node_modules
     networks:
       - mfe-network
@@ -273,23 +276,23 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 
 COPY package*.json ./
-COPY services/backend-api/package*.json ./services/backend-api/
+COPY backend/package*.json ./backend/
 
 RUN npm ci --only=production
 
-COPY services/backend-api ./services/backend-api
+COPY backend ./backend
 
 # Production stage
 FROM node:20-alpine AS production
 
 WORKDIR /app
 
-COPY --from=builder /app/services/backend-api ./services/backend-api
+COPY --from=builder /app/backend ./backend
 COPY --from=builder /app/node_modules ./node_modules
 
 EXPOSE 3000
 
-CMD ["node", "services/backend-api/dist/server.js"]
+CMD ["node", "backend/dist/server.js"]
 ```
 
 ---
@@ -472,7 +475,7 @@ Crie `/home/tsgomes/github-tassosgomes/mfe-dinamico/infrastructure/keycloak/READ
 
 ### 6.1 Package.json
 
-Crie `/home/tsgomes/github-tassosgomes/mfe-dinamico/services/backend-api/package.json`:
+Crie `/home/tsgomes/github-tassosgomes/mfe-dinamico/backend/package.json`:
 
 ```json
 {
@@ -505,7 +508,7 @@ Crie `/home/tsgomes/github-tassosgomes/mfe-dinamico/services/backend-api/package
 
 ### 6.2 TypeScript Config
 
-Crie `/home/tsgomes/github-tassosgomes/mfe-dinamico/services/backend-api/tsconfig.json`:
+Crie `/home/tsgomes/github-tassosgomes/mfe-dinamico/backend/tsconfig.json`:
 
 ```json
 {
@@ -535,8 +538,8 @@ echo "🚀 Setting up MFE RBAC POC..."
 
 # Criar diretórios
 echo "📁 Creating directory structure..."
-mkdir -p apps/{host,admin-remote,sales-remote,user-remote}/{src,public}
-mkdir -p services/backend-api/src/{routes,middleware,services,config}
+mkdir -p host/src admin-remote/src sales-remote/src user-remote/src
+mkdir -p backend/src/{routes,middleware,services,config}
 mkdir -p shared/{types,utils}
 mkdir -p infrastructure/{docker,keycloak/realms}
 
@@ -592,7 +595,7 @@ sleep 5
 
 # Start frontend apps (in separate terminals)
 echo "⚛️  Starting Host App..."
-cd apps/host && npm run dev &
+cd host && npm run dev &
 
 sleep 2
 

@@ -5,7 +5,7 @@ blocked_by: ["5.0"]
 ---
 
 <task_context>
-<domain>apps/sales-remote</domain>
+<domain>sales-remote</domain>
 <type>implementation</type>
 <scope>core_feature</scope>
 <complexity>medium</complexity>
@@ -32,7 +32,7 @@ Implementar o micro-frontend Sales Remote, acessível para usuários com role SA
 
 ## Subtarefas
 
-- [ ] 7.1 Criar estrutura de diretórios `apps/sales-remote/`
+- [ ] 7.1 Criar estrutura de diretórios `sales-remote/`
 - [ ] 7.2 Inicializar projeto Vite + React + TypeScript
 - [ ] 7.3 Instalar @module-federation/enhanced
 - [ ] 7.4 Configurar Module Federation no vite.config.ts (expor ./SalesApp)
@@ -62,7 +62,7 @@ Implementar o micro-frontend Sales Remote, acessível para usuários com role SA
 
 ### Estrutura de Diretórios
 ```
-apps/sales-remote/
+sales-remote/
 ├── src/
 │   ├── components/
 │   │   ├── AccessDenied.tsx

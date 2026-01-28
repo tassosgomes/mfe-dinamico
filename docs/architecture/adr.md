@@ -674,7 +674,7 @@ services:
     command: start-dev
 
   backend-api:
-    build: ./services/backend-api
+    build: ./backend
     ports:
       - "3000:3000"
     environment:
@@ -695,10 +695,10 @@ Para desenvolvimento:
 docker-compose up keycloak backend-api
 
 # Terminal 2: Host
-cd apps/host && npm run dev
+cd host && npm run dev
 
 # Terminal 3: Admin Remote
-cd apps/admin-remote && npm run dev
+cd admin-remote && npm run dev
 
 # ... etc
 ```

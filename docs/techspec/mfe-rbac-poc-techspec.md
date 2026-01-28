@@ -83,79 +83,84 @@ A arquitetura implementa defesa em profundidade com validacao em múltiplas cama
 
 ### Estrutura de Diretorios
 
+> **IMPORTANTE:** Cada projeto deve ser criado em sua respectiva pasta na raiz do repositório:
+> - `host/` - Host Application
+> - `backend/` - Backend API (Manifest Service)
+> - `admin-remote/` - Admin Remote (ADMIN only)
+> - `sales-remote/` - Sales Remote (SALES or ADMIN)
+> - `user-remote/` - User Remote (All authenticated)
+
 ```
 mfe-dinamico/
-├── apps/
-│   ├── host/                     # Host Application
-│   │   ├── src/
-│   │   │   ├── auth/             # OIDC client, token manager
-│   │   │   ├── components/       # Layout, menu, error boundaries
-│   │   │   ├── loaders/          # Dynamic Remote Loader
-│   │   │   ├── contexts/         # AuthContext, ManifestContext
-│   │   │   ├── pages/            # Home, NotFound, AccessDenied
-│   │   │   ├── utils/            # Event bus, helpers
-│   │   │   ├── App.tsx
-│   │   │   └── main.tsx
-│   │   ├── public/
-│   │   ├── index.html
-│   │   ├── vite.config.ts
-│   │   ├── package.json
-│   │   └── tsconfig.json
-│   │
-│   ├── admin-remote/             # Admin Remote (ADMIN only)
-│   │   ├── src/
-│   │   │   ├── components/       # UsersList, SystemSettings
-│   │   │   ├── pages/            # Dashboard, Users, Settings
-│   │   │   ├── guards/           # RoleGuard component
-│   │   │   ├── App.tsx
-│   │   │   └── main.tsx
-│   │   ├── vite.config.ts
-│   │   └── package.json
-│   │
-│   ├── sales-remote/             # Sales Remote (SALES or ADMIN)
-│   │   ├── src/
-│   │   │   ├── components/       # SalesChart, RankingTable
-│   │   │   ├── pages/            # Dashboard, Reports
-│   │   │   ├── guards/           # RoleGuard component
-│   │   │   ├── App.tsx
-│   │   │   └── main.tsx
-│   │   ├── vite.config.ts
-│   │   └── package.json
-│   │
-│   └── user-remote/              # User Remote (All authenticated)
-│       ├── src/
-│       │   ├── components/       # ProfileForm, UserInfo
-│       │   ├── pages/            # Profile, EditProfile
-│       │   ├── App.tsx
-│       │   └── main.tsx
-│       ├── vite.config.ts
-│       └── package.json
+├── host/                         # Host Application
+│   ├── src/
+│   │   ├── auth/                 # OIDC client, token manager
+│   │   ├── components/           # Layout, menu, error boundaries
+│   │   ├── loaders/              # Dynamic Remote Loader
+│   │   ├── contexts/             # AuthContext, ManifestContext
+│   │   ├── pages/                # Home, NotFound, AccessDenied
+│   │   ├── utils/                # Event bus, helpers
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── public/
+│   ├── index.html
+│   ├── vite.config.ts
+│   ├── package.json
+│   └── tsconfig.json
 │
-├── services/
-│   └── backend-api/              # Backend Node.js/Express
-│       ├── src/
-│       │   ├── routes/           # API routes
-│       │   │   ├── config.routes.ts
-│       │   │   └── health.routes.ts
-│       │   ├── middleware/       # Auth, CORS, error handling
-│       │   │   ├── auth.middleware.ts
-│       │   │   ├── cors.middleware.ts
-│       │   │   └── error.middleware.ts
-│       │   ├── services/         # Business logic
-│       │   │   ├── jwt.service.ts
-│       │   │   └── manifest.service.ts
-│       │   ├── config/           # App configuration
-│       │   │   ├── index.ts
-│       │   │   ├── remotes.config.ts
-│       │   │   └── keycloak.config.ts
-│       │   ├── types/            # TypeScript types
-│       │   │   └── index.ts
-│       │   ├── utils/            # Helpers
-│       │   │   └── logger.ts
-│       │   └── server.ts
-│       ├── Dockerfile
-│       ├── package.json
-│       └── tsconfig.json
+├── backend/                      # Backend Node.js/Express (Manifest Service)
+│   ├── src/
+│   │   ├── routes/               # API routes
+│   │   │   ├── config.routes.ts
+│   │   │   └── health.routes.ts
+│   │   ├── middleware/           # Auth, CORS, error handling
+│   │   │   ├── auth.middleware.ts
+│   │   │   ├── cors.middleware.ts
+│   │   │   └── error.middleware.ts
+│   │   ├── services/             # Business logic
+│   │   │   ├── jwt.service.ts
+│   │   │   └── manifest.service.ts
+│   │   ├── config/               # App configuration
+│   │   │   ├── index.ts
+│   │   │   ├── remotes.config.ts
+│   │   │   └── keycloak.config.ts
+│   │   ├── types/                # TypeScript types
+│   │   │   └── index.ts
+│   │   ├── utils/                # Helpers
+│   │   │   └── logger.ts
+│   │   └── server.ts
+│   ├── Dockerfile
+│   ├── package.json
+│   └── tsconfig.json
+│
+├── admin-remote/                 # Admin Remote (ADMIN only)
+│   ├── src/
+│   │   ├── components/           # UsersList, SystemSettings
+│   │   ├── pages/                # Dashboard, Users, Settings
+│   │   ├── guards/               # RoleGuard component
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── vite.config.ts
+│   └── package.json
+│
+├── sales-remote/                 # Sales Remote (SALES or ADMIN)
+│   ├── src/
+│   │   ├── components/           # SalesChart, RankingTable
+│   │   ├── pages/                # Dashboard, Reports
+│   │   ├── guards/               # RoleGuard component
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── vite.config.ts
+│   └── package.json
+│
+├── user-remote/                  # User Remote (All authenticated)
+│   ├── src/
+│   │   ├── components/           # ProfileForm, UserInfo
+│   │   ├── pages/                # Profile, EditProfile
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── vite.config.ts
+│   └── package.json
 │
 ├── infrastructure/
 │   ├── keycloak/                 # Keycloak configuration
@@ -343,12 +348,12 @@ export interface RemoteAppProps {
 }
 ```
 
-#### 4. Backend Types (services/backend-api/src/types/index.ts)
+#### 4. Backend Types (backend/src/types/index.ts)
 
 ```typescript
-// services/backend-api/src/types/index.ts
+// backend/src/types/index.ts
 
-import { Role } from '../../../../shared/types/auth.types';
+import { Role } from '../../../shared/types/auth.types';
 
 // Keycloak JWT payload structure
 export interface KeycloakJwtPayload {
@@ -404,10 +409,10 @@ export interface AuthenticatedRequest extends Express.Request {
 }
 ```
 
-#### 5. JWT Service Interface (services/backend-api/src/services/jwt.service.ts)
+#### 5. JWT Service Interface (backend/src/services/jwt.service.ts)
 
 ```typescript
-// services/backend-api/src/services/jwt.service.ts
+// backend/src/services/jwt.service.ts
 
 import { KeycloakJwtPayload, Role } from '../types';
 
@@ -436,10 +441,10 @@ export interface IJwtService {
 }
 ```
 
-#### 6. Manifest Service Interface (services/backend-api/src/services/manifest.service.ts)
+#### 6. Manifest Service Interface (backend/src/services/manifest.service.ts)
 
 ```typescript
-// services/backend-api/src/services/manifest.service.ts
+// backend/src/services/manifest.service.ts
 
 import { Role, RemoteConfigEntry } from '../types';
 
@@ -523,7 +528,7 @@ interface KeycloakAccessToken {
 #### Remote Configuration Database (in-memory for POC)
 
 ```typescript
-// services/backend-api/src/config/remotes.config.ts
+// backend/src/config/remotes.config.ts
 
 const REMOTES_CONFIG: RemoteConfigEntry[] = [
   {
@@ -774,11 +779,11 @@ export default defineConfig({
 
 **Dynamic Loader Implementation:**
 ```typescript
-// apps/host/src/loaders/DynamicRemoteLoader.tsx
+// host/src/loaders/DynamicRemoteLoader.tsx
 import { useEffect, useState, ComponentType } from 'react';
 import { init, loadRemote } from '@module-federation/enhanced/runtime';
-import type { RemoteLoaderProps, RemoteAppProps } from '../../../shared/types/remote.types';
-import type { AuthContext } from '../../../shared/types/auth.types';
+import type { RemoteLoaderProps, RemoteAppProps } from '../../shared/types/remote.types';
+import type { AuthContext } from '../../shared/types/auth.types';
 
 export function DynamicRemoteLoader({
   remoteName,
@@ -873,8 +878,8 @@ function getRoutePath(remoteName: string): string {
 
 **Event Bus Implementation:**
 ```typescript
-// apps/host/src/utils/EventBus.ts
-import type { AuthEvent, AuthEventHandler, AuthEventType } from '../../../shared/types/auth.types';
+// host/src/utils/EventBus.ts
+import type { AuthEvent, AuthEventHandler, AuthEventType } from '../../shared/types/auth.types';
 
 class AuthEventBus {
   private listeners: Map<AuthEventType, Set<AuthEventHandler>> = new Map();
@@ -908,11 +913,11 @@ export const authEventBus = new AuthEventBus();
 
 **Auth Context Provider:**
 ```typescript
-// apps/host/src/contexts/AuthContext.tsx
+// host/src/contexts/AuthContext.tsx
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { UserManager, WebStorageStateStore } from 'oidc-client-ts';
 import { authEventBus } from '../utils/EventBus';
-import type { AuthContext, UserProfile, AuthTokens, AuthEvent } from '../../../shared/types/auth.types';
+import type { AuthContext, UserProfile, AuthTokens, AuthEvent } from '../../shared/types/auth.types';
 
 const AuthContextProvider = createContext<AuthContext | null>(null);
 
@@ -1099,7 +1104,7 @@ function extractUserProfile(profile: any): UserProfile {
 
 **JWT Service Implementation:**
 ```typescript
-// services/backend-api/src/services/jwt.service.ts
+// backend/src/services/jwt.service.ts
 import jwt from 'jsonwebtoken';
 import jwksClient from 'jwks-rsa';
 import type { IJwtService, JwtValidationResult, KeycloakJwtPayload, Role } from '../types';
@@ -1359,11 +1364,11 @@ main();
 
 | Componente Afetado | Tipo de Impacto | Descricao & Nivel de Risco | Acao Requerida |
 |-------------------|-----------------|----------------------------|----------------|
-| **apps/host/** | Novo Componente | Aplicacao Host nova - Medio risco | Implementar do zero |
-| **apps/admin-remote/** | Novo Componente | Remote Admin novo - Medio risco | Implementar do zero |
-| **apps/sales-remote/** | Novo Componente | Remote Sales novo - Medio risco | Implementar do zero |
-| **apps/user-remote/** | Novo Componente | Remote User novo - Medio risco | Implementar do zero |
-| **services/backend-api/** | Novo Componente | Backend API novo - Medio risco | Implementar do zero |
+| **host/** | Novo Componente | Aplicacao Host nova - Medio risco | Implementar do zero |
+| **admin-remote/** | Novo Componente | Remote Admin novo - Medio risco | Implementar do zero |
+| **sales-remote/** | Novo Componente | Remote Sales novo - Medio risco | Implementar do zero |
+| **user-remote/** | Novo Componente | Remote User novo - Medio risco | Implementar do zero |
+| **backend/** | Novo Componente | Backend API novo - Medio risco | Implementar do zero |
 | **infrastructure/keycloak/** | Infraestrutura | Keycloak container novo - Baixo risco | Configurar Docker |
 | **shared/types/** | Novo Componente | Tipos compartilhados - Baixo risco | Criar interfaces TypeScript |
 
@@ -1394,10 +1399,10 @@ main();
 
 ### Testes Unitarios
 
-**Backend (services/backend-api/):**
+**Backend (backend/):**
 
 ```typescript
-// services/backend-api/src/__tests__/services/jwt.service.test.ts
+// backend/src/__tests__/services/jwt.service.test.ts
 import { JwtService } from '../../services/jwt.service';
 
 describe('JwtService', () => {
@@ -1448,7 +1453,7 @@ describe('JwtService', () => {
 ```
 
 ```typescript
-// services/backend-api/src/__tests__/services/manifest.service.test.ts
+// backend/src/__tests__/services/manifest.service.test.ts
 import { ManifestService } from '../../services/manifest.service';
 import { Role } from '../../types';
 
@@ -1485,10 +1490,10 @@ describe('ManifestService', () => {
 });
 ```
 
-**Frontend (apps/host/):**
+**Frontend (host/):**
 
 ```typescript
-// apps/host/src/__tests__/contexts/AuthContext.test.tsx
+// host/src/__tests__/contexts/AuthContext.test.tsx
 import { renderHook, act, waitFor } from '@testing-library/react';
 import { AuthProvider, useAuthContext } from '../contexts/AuthContext';
 
@@ -1517,7 +1522,7 @@ describe('AuthContext', () => {
 ### Testes de Integracao
 
 ```typescript
-// services/backend-api/src/__tests__/integration/config.routes.integration.test.ts
+// backend/src/__tests__/integration/config.routes.integration.test.ts
 import request from 'supertest';
 import { app } from '../../server';
 import { generateMockToken } from '../helpers/token-generator';
@@ -1612,7 +1617,7 @@ describe('POST /api/config/remotes - Integration', () => {
 ### Ordem de Construção
 
 **Fase 1: Infraestrutura (1-2 dias)**
-1. Criar estrutura de diretorios (apps/, services/, infrastructure/, shared/)
+1. Criar estrutura de diretorios (host/, backend/, admin-remote/, sales-remote/, user-remote/, infrastructure/, shared/)
 2. Configurar Docker Compose (Keycloak, network)
 3. Criar Keycloak setup script
 4. Executar setup e testar criacao de realm/users
@@ -1697,7 +1702,7 @@ navigation_total{from="/",to="/admin"} 5
 
 **Backend (Winston ou Pino):**
 ```typescript
-// services/backend-api/src/utils/logger.ts
+// backend/src/utils/logger.ts
 export const logger = {
   info: (message: string, meta?: object) => {
     console.log(JSON.stringify({
@@ -1846,7 +1851,7 @@ services:
 
   backend-api:
     build:
-      context: ./services/backend-api
+      context: ./backend
       dockerfile: Dockerfile
     container_name: mfe-backend-api
     environment:
@@ -1910,7 +1915,7 @@ VITE_KEYCLOAK_CLIENT_ID=mfe-host-client
 
 ## Arquivos de Configuracao Detalhados
 
-### Backend: services/backend-api/package.json
+### Backend: backend/package.json
 
 ```json
 {
@@ -1954,7 +1959,7 @@ VITE_KEYCLOAK_CLIENT_ID=mfe-host-client
 }
 ```
 
-### Backend: services/backend-api/tsconfig.json
+### Backend: backend/tsconfig.json
 
 ```json
 {
@@ -1981,10 +1986,10 @@ VITE_KEYCLOAK_CLIENT_ID=mfe-host-client
 }
 ```
 
-### Backend: services/backend-api/src/server.ts
+### Backend: backend/src/server.ts
 
 ```typescript
-// services/backend-api/src/server.ts
+// backend/src/server.ts
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -2053,7 +2058,7 @@ app.listen(PORT, () => {
 export { app };
 ```
 
-### Host: apps/host/package.json
+### Host: host/package.json
 
 ```json
 {
@@ -2083,7 +2088,7 @@ export { app };
 }
 ```
 
-### Host: apps/host/vite.config.ts
+### Host: host/vite.config.ts
 
 ```typescript
 import { defineConfig } from 'vite';
@@ -2129,7 +2134,7 @@ export default defineConfig({
 });
 ```
 
-### Remote Example: apps/admin-remote/vite.config.ts
+### Remote Example: admin-remote/vite.config.ts
 
 ```typescript
 import { defineConfig } from 'vite';
@@ -2192,24 +2197,24 @@ npm run setup:keycloak
 
 # 6. Instale as dependencias
 npm install
-cd apps/host && npm install
+cd host && npm install
 cd ../admin-remote && npm install
 cd ../sales-remote && npm install
 cd ../user-remote && npm install
-cd ../../services/backend-api && npm install
+cd ../backend && npm install
 
 # 7. Inicie os aplicativos (em terminais separados)
 # Terminal 2: Host
-cd apps/host && npm run dev
+cd host && npm run dev
 
 # Terminal 3: Admin Remote
-cd apps/admin-remote && npm run dev
+cd admin-remote && npm run dev
 
 # Terminal 4: Sales Remote
-cd apps/sales-remote && npm run dev
+cd sales-remote && npm run dev
 
 # Terminal 5: User Remote
-cd apps/user-remote && npm run dev
+cd user-remote && npm run dev
 ```
 
 ### Acesso
@@ -2242,10 +2247,10 @@ cd apps/user-remote && npm run dev
 | `shared/types/manifest.types.ts` | `RemoteConfig` | Configuracao de um remote |
 | `shared/types/remote.types.ts` | `RemoteLoaderProps` | Props do Dynamic Remote Loader |
 | `shared/types/remote.types.ts` | `RemoteAppProps` | Props que remotes recebem |
-| `services/backend-api/src/types/index.ts` | `KeycloakJwtPayload` | Payload do JWT Keycloak |
-| `services/backend-api/src/types/index.ts` | `AuthenticatedRequest` | Request Express autenticada |
-| `services/backend-api/src/services/jwt.service.ts` | `IJwtService` | Interface do JWT Service |
-| `services/backend-api/src/services/manifest.service.ts` | `IManifestService` | Interface do Manifest Service |
+| `backend/src/types/index.ts` | `KeycloakJwtPayload` | Payload do JWT Keycloak |
+| `backend/src/types/index.ts` | `AuthenticatedRequest` | Request Express autenticada |
+| `backend/src/services/jwt.service.ts` | `IJwtService` | Interface do JWT Service |
+| `backend/src/services/manifest.service.ts` | `IManifestService` | Interface do Manifest Service |
 
 ---
 

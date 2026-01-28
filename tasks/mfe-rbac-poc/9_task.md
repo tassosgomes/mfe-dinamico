@@ -97,17 +97,17 @@ echo "✅ Keycloak pronto!"
 
 # Iniciar Backend
 echo "🖥️ Iniciando Backend API..."
-cd services/backend-api && npm run dev &
+cd backend && npm run dev &
 
 # Iniciar Host
 echo "🏠 Iniciando Host App..."
-cd apps/host && npm run dev &
+cd host && npm run dev &
 
 # Iniciar Remotes
 echo "🔌 Iniciando Remotes..."
-cd apps/admin-remote && npm run dev &
-cd apps/sales-remote && npm run dev &
-cd apps/user-remote && npm run dev &
+cd admin-remote && npm run dev &
+cd sales-remote && npm run dev &
+cd user-remote && npm run dev &
 
 echo ""
 echo "✨ Todos os serviços iniciados!"

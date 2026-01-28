@@ -5,7 +5,7 @@ blocked_by: ["5.0"]
 ---
 
 <task_context>
-<domain>apps/admin-remote</domain>
+<domain>admin-remote</domain>
 <type>implementation</type>
 <scope>core_feature</scope>
 <complexity>medium</complexity>
@@ -34,7 +34,7 @@ Implementar o micro-frontend Admin Remote, acessível apenas para usuários com 
 
 ## Subtarefas
 
-- [ ] 6.1 Criar estrutura de diretórios `apps/admin-remote/`
+- [ ] 6.1 Criar estrutura de diretórios `admin-remote/`
 - [ ] 6.2 Inicializar projeto Vite + React + TypeScript
 - [ ] 6.3 Instalar @module-federation/enhanced
 - [ ] 6.4 Configurar Module Federation no vite.config.ts (expor ./AdminApp)
@@ -65,7 +65,7 @@ Implementar o micro-frontend Admin Remote, acessível apenas para usuários com 
 
 ### Estrutura de Diretórios
 ```
-apps/admin-remote/
+admin-remote/
 ├── src/
 │   ├── components/
 │   │   ├── AccessDenied.tsx

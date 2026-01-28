@@ -5,7 +5,7 @@ blocked_by: ["5.0"]
 ---
 
 <task_context>
-<domain>apps/user-remote</domain>
+<domain>user-remote</domain>
 <type>implementation</type>
 <scope>core_feature</scope>
 <complexity>low</complexity>
@@ -32,7 +32,7 @@ Implementar o micro-frontend User Remote, acessível para qualquer usuário aute
 
 ## Subtarefas
 
-- [ ] 8.1 Criar estrutura de diretórios `apps/user-remote/`
+- [ ] 8.1 Criar estrutura de diretórios `user-remote/`
 - [ ] 8.2 Inicializar projeto Vite + React + TypeScript
 - [ ] 8.3 Instalar @module-federation/enhanced
 - [ ] 8.4 Configurar Module Federation no vite.config.ts (expor ./UserApp)
@@ -60,7 +60,7 @@ Implementar o micro-frontend User Remote, acessível para qualquer usuário aute
 
 ### Estrutura de Diretórios
 ```
-apps/user-remote/
+user-remote/
 ├── src/
 │   ├── components/
 │   │   ├── ErrorBoundary.tsx

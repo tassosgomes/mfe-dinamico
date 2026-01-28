@@ -5,7 +5,7 @@ blocked_by: ["2.0"]
 ---
 
 <task_context>
-<domain>services/backend-api</domain>
+<domain>backend</domain>
 <type>implementation</type>
 <scope>core_feature</scope>
 <complexity>high</complexity>
@@ -36,7 +36,7 @@ Implementar o Backend API em Node.js/Express que funciona como Manifest Service.
 
 ## Subtarefas
 
-- [ ] 3.1 Criar estrutura de diretórios `services/backend-api/`
+- [ ] 3.1 Criar estrutura de diretórios `backend/`
 - [ ] 3.2 Inicializar projeto Node.js com TypeScript (`package.json`, `tsconfig.json`)
 - [ ] 3.3 Instalar dependências: express, cors, helmet, jsonwebtoken, jwks-rsa, dotenv
 - [ ] 3.4 Criar `src/types/index.ts` com tipos específicos do backend
@@ -67,7 +67,7 @@ Implementar o Backend API em Node.js/Express que funciona como Manifest Service.
 
 ### Estrutura de Diretórios
 ```
-services/backend-api/
+backend/
 ├── src/
 │   ├── config/
 │   │   ├── index.ts

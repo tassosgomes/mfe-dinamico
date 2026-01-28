@@ -5,7 +5,7 @@ blocked_by: ["3.0", "4.0"]
 ---
 
 <task_context>
-<domain>apps/host</domain>
+<domain>host</domain>
 <type>implementation</type>
 <scope>core_feature</scope>
 <complexity>high</complexity>
@@ -73,7 +73,7 @@ Implementar o carregamento dinâmico de remotes usando Module Federation Runtime
 
 ### Estrutura Adicional de Diretórios
 ```
-apps/host/src/
+host/src/
 ├── components/
 │   ├── ErrorBoundary.tsx
 │   ├── Header.tsx
