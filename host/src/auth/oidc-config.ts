@@ -20,6 +20,8 @@ export const oidcConfig: UserManagerSettings = {
   scope: 'openid profile email',
   automaticSilentRenew: true,
   accessTokenExpiringNotificationTimeInSeconds: 60,
+  // userStore em memória para não expor tokens no sessionStorage
   userStore: new WebStorageStateStore({ store: new InMemoryWebStorage() }),
-  stateStore: new WebStorageStateStore({ store: new InMemoryWebStorage() }),
+  // stateStore DEVE usar sessionStorage para sobreviver ao redirect do OIDC
+  stateStore: new WebStorageStateStore({ store: sessionStorage }),
 };

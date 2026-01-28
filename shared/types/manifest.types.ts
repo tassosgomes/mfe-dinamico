@@ -20,6 +20,12 @@ export interface RemoteConfig {
   requiredRoles: Role[];
   icon: string;
   version: string;
+  /**
+   * Tipo do remote entry.
+   * - 'module': ES modules (Vite dev mode ou ESM builds)
+   * - 'var': Global variable (Webpack UMD builds)
+   */
+  type?: 'module' | 'var';
 }
 
 /**

@@ -16,7 +16,7 @@ echo "[start-all] Starting Keycloak (Docker)..."
 docker compose up -d keycloak
 
 echo "[start-all] Waiting for Keycloak to be ready..."
-until curl -sf http://localhost:8080/health/ready > /dev/null; do
+until curl -sf http://localhost:8080/realms/master > /dev/null 2>&1; do
   sleep 2
 done
 

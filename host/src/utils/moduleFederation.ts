@@ -6,7 +6,7 @@ let currentHash = '';
 
 function buildHash(remotes: RemoteConfig[]): string {
   return remotes
-    .map((remote) => `${remote.remoteName}:${remote.remoteEntry}`)
+    .map((remote) => `${remote.remoteName}:${remote.remoteEntry}:${remote.type ?? 'var'}`)
     .sort()
     .join('|');
 }
@@ -26,6 +26,7 @@ export function initializeFederation(remotes: RemoteConfig[]): void {
     remotes: remotes.map((remote) => ({
       name: remote.remoteName,
       entry: remote.remoteEntry,
+      type: remote.type ?? 'var',
     })),
   });
 

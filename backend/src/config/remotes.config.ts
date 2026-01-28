@@ -10,6 +10,7 @@ export const REMOTES_CONFIG: RemoteConfigEntry[] = [
     requiredRoles: ['ADMIN'],
     icon: 'shield',
     version: '1.0.0',
+    type: 'module',
     enabled: true,
   },
   {
@@ -21,6 +22,7 @@ export const REMOTES_CONFIG: RemoteConfigEntry[] = [
     requiredRoles: ['SALES', 'ADMIN'],
     icon: 'chart',
     version: '1.0.0',
+    type: 'module',
     enabled: true,
   },
   {
@@ -32,6 +34,7 @@ export const REMOTES_CONFIG: RemoteConfigEntry[] = [
     requiredRoles: [],
     icon: 'user',
     version: '1.0.0',
+    type: 'module',
     enabled: true,
   },
 ];

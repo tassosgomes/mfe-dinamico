@@ -196,12 +196,13 @@ mfe-dinamico/
 - [x] Token storage in memory with silent refresh
 - [x] CORS e security headers configured
 - [x] Docker Compose orquestração
+- [x] Error boundaries nos remotes
+- [x] Fluxo E2E completo validado
 
 ### 🚧 Em Progresso
 
-- [ ] Error boundaries e retry mechanism
-- [ ] Logging e monitoring
-- [ ] Testes end-to-end
+- [ ] Logging e monitoring avançado
+- [ ] Retry mechanism automático
 - [ ] Documentação de deploy
 
 ### 📅 Fora de Escopo
@@ -348,5 +349,5 @@ Tassio Gomes - [@tassosgomes](https://github.com/tassosgomes)
 
 ---
 
-**Status da POC:** Em Desenvolvimento
-**Última Atualização:** 27 de Janeiro de 2026
+**Status da POC:** ✅ Funcional (E2E Validado)
+**Última Atualização:** 28 de Janeiro de 2026

@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import { federation } from '@module-federation/vite';
 
 export default defineConfig({
+  base: 'http://localhost:5175',
   plugins: [
     react(),
     federation({
@@ -22,6 +23,7 @@ export default defineConfig({
     port: 5175,
     strictPort: true,
     cors: true,
+    origin: 'http://localhost:5175',
   },
   build: {
     target: 'esnext',

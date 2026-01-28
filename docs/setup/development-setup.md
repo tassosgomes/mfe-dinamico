@@ -1,7 +1,7 @@
 # Development Setup Guide - MFE RBAC POC
 
-**Última Atualização:** 27 de Janeiro de 2026
-**Versão:** 1.0
+**Última Atualização:** 28 de Janeiro de 2026
+**Versão:** 1.1
 **Autor:** Tassio Gomes
 
 ---

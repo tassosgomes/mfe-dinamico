@@ -1,33 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { userManager } from '../auth/userManager';
 
 export function Callback() {
   const navigate = useNavigate();
   const [error, setError] = useState<string | null>(null);
+  // Ref para evitar dupla execução em StrictMode
+  const callbackExecuted = useRef(false);
 
   useEffect(() => {
-    let isMounted = true;
+    // StrictMode executa useEffect duas vezes em dev - proteger contra isso
+    if (callbackExecuted.current) {
+      return;
+    }
+    callbackExecuted.current = true;
 
     const handleCallback = async () => {
       try {
         await userManager.signinRedirectCallback();
-        if (isMounted) {
-          navigate('/', { replace: true });
-        }
+        navigate('/', { replace: true });
       } catch (err) {
-        if (isMounted) {
-          const message = err instanceof Error ? err.message : 'Erro no callback';
-          setError(message);
-        }
+        const message = err instanceof Error ? err.message : 'Erro no callback';
+        setError(message);
       }
     };
 
     void handleCallback();
-
-    return () => {
-      isMounted = false;
-    };
   }, [navigate]);
 
   return (
