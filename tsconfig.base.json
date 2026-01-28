@@ -21,7 +21,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@shared/*": ["./shared/*"]
+      "@shared/*": ["./shared/*"],
+      "@shared/types": ["./shared/types/index.ts"],
+      "@shared/types/*": ["./shared/types/*"]
     }
   },
   "exclude": ["node_modules", "dist", "build"]
