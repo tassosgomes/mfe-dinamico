@@ -72,6 +72,8 @@ Esta POC demonstra que é possível carregar **apenas** os remotes que o usuári
 - 🏗️ [System Architecture](./docs/architecture/system-architecture.md) - Arquitetura detalhada
 - 📋 [ADR](./docs/architecture/adr.md) - Architecture Decision Records
 - 🚀 [Development Setup](./docs/setup/development-setup.md) - Setup completo
+- 🧪 [Checklist de Validacao](./docs/testing/validation-checklist.md) - Fluxo completo de testes
+- ⚠️ [Problemas Conhecidos](./docs/testing/known-issues.md) - Workarounds
 
 ---
 
@@ -89,40 +91,53 @@ Esta POC demonstra que é possível carregar **apenas** os remotes que o usuári
 # 1. Clonar o repositório
 cd mfe-dinamico
 
-# 2. Subir o Keycloak via Docker Compose
-docker compose up -d
+# 2. Criar arquivo de ambiente
+cp .env.example .env
 
-# 3. (Opcional) Forçar setup via script se o realm não foi importado
-node infrastructure/keycloak/setup-script.js
+# 3. Instalar dependências
+for dir in backend host admin-remote sales-remote user-remote; do (cd "$dir" && npm install); done
 
-# 4. Iniciar desenvolvimento (quando as apps existirem)
-# ./scripts/dev.sh
+# 4. Iniciar todos os serviços (Keycloak + apps)
+./start-all.sh
 ```
 
-### Acessar Aplicações
+### Alternativa: Docker Compose (todos os serviços)
 
-- **Host App:** http://localhost:5173
-- **Keycloak Admin:** http://localhost:8080 (admin/admin)
-- **Backend API:** http://localhost:3000/health
+```bash
+docker compose up -d
+```
+
+### Portas e URLs
+
+| Serviço | Porta | URL |
+|---------|-------|-----|
+| Keycloak | 8080 | http://localhost:8080 |
+| Backend API | 3001 | http://localhost:3001 |
+| Host App | 5173 | http://localhost:5173 |
+| Admin Remote | 5174 | http://localhost:5174 |
+| Sales Remote | 5175 | http://localhost:5175 |
+| User Remote | 5176 | http://localhost:5176 |
+
+Keycloak Admin Console: http://localhost:8080 (admin/admin)
+Backend health check: http://localhost:3001/health
 
 ### Realm e usuários de teste
 
-O realm é importado automaticamente a partir de [infrastructure/keycloak/realm-export.json](infrastructure/keycloak/realm-export.json)
-com as seguintes roles e usuários:
+O realm é importado automaticamente a partir de [infrastructure/keycloak/realm-export.json](infrastructure/keycloak/realm-export.json).
 
 | Usuário | Email | Senha | Role |
 |---------|-------|-------|------|
-| anadmin | ana@corp.com | admin123 | ADMIN |
-| carlossales | carlos@corp.com | sales123 | SALES |
-| joaouser | joao@corp.com | user123 | USER |
+| Ana | ana@corp.com | admin123 | ADMIN |
+| Carlos | carlos@corp.com | sales123 | SALES |
+| Joao | joao@corp.com | user123 | USER |
 
 ### Testar com Diferentes Roles
 
 | Username | Password | Roles | Access |
 |----------|----------|-------|--------|
-| admin | admin123 | ADMIN | All remotes (Admin, Sales, User) |
-| sales | sales123 | SALES | Sales + User |
-| user | user123 | USER | User only |
+| ana@corp.com | admin123 | ADMIN | Admin, Sales, User |
+| carlos@corp.com | sales123 | SALES | Sales, User |
+| joao@corp.com | user123 | USER | User |
 
 ---
 
@@ -130,37 +145,18 @@ com as seguintes roles e usuários:
 
 ```
 mfe-dinamico/
-├── apps/                      # Frontend Applications
-│   ├── host/                  # Host Application (Shell)
-│   ├── admin-remote/          # Admin Dashboard Remote
-│   ├── sales-remote/          # Sales Dashboard Remote
-│   └── user-remote/           # User Profile Remote
-│
-├── services/                  # Backend Services
-│   └── backend-api/           # Node.js + Express
-│       ├── src/routes/        # API routes
-│       ├── src/services/      # Business logic
-│       └── src/middleware/    # Auth, CORS, error handlers
-│
-├── infrastructure/            # Infra as Code
-│   ├── docker/                # Docker Compose configs
-│   ├── keycloak/              # Realm exports
-│   └── nginx/                 # Production configs
-│
-├── shared/                    # Shared types & utilities
-│   ├── types/                 # TypeScript types
-│   └── utils/                 # Shared utilities
-│
-├── docs/                      # Documentation
-│   ├── prd/                   # Product Requirements
-│   ├── architecture/          # Architecture & ADRs
-│   └── setup/                 # Setup guides
-│
-├── scripts/                   # Automation scripts
-│   ├── setup.sh               # Initial setup
-│   └── dev.sh                 # Start all services
-│
-└── README.md                  # (this file)
+├── host/                      # Host Application (Shell)
+├── backend/                   # Backend API (Manifest Service)
+├── admin-remote/              # Admin Dashboard Remote
+├── sales-remote/              # Sales Dashboard Remote
+├── user-remote/               # User Profile Remote
+├── shared/                    # Shared types
+├── infrastructure/            # Infra (Keycloak realm)
+├── docs/                      # Documentacao
+├── tasks/                     # Tarefas e PRD/Tech Spec
+├── start-all.sh               # Script para iniciar tudo
+├── docker-compose.yml         # Docker Compose (todos os servicos)
+└── README.md                  # Este arquivo
 ```
 
 ---
@@ -299,64 +295,32 @@ mfe-dinamico/
 
 ---
 
-## 🚀 Scripts Disponíveis
+## 🚀 Comandos Úteis
 
 ```bash
-# Instalar todas as dependências
-npm run install:all
+# Iniciar tudo localmente (Keycloak + apps)
+./start-all.sh
 
-# Iniciar infraestrutura (Keycloak + Backend)
-npm run dev:infra
+# Iniciar stack via Docker Compose
+docker compose up -d
 
-# Iniciar Host App
-npm run dev:host
-
-# Iniciar Remotes (individualmente)
-npm run dev:admin
-npm run dev:sales
-npm run dev:user
-
-# Iniciar tudo (background)
-npm run dev:all
-
-# Build de todas as apps
-npm run build:all
-
-# Rodar testes
-npm run test
+# Iniciar apps manualmente (em terminais separados)
+cd backend && npm run dev
+cd host && npm run dev
+cd admin-remote && npm run dev
+cd sales-remote && npm run dev
+cd user-remote && npm run dev
 ```
 
 ---
 
 ## 🧪 Testar a POC
 
-### Fluxo de Teste Manual
+Checklist completo de validacao:
+[docs/testing/validation-checklist.md](docs/testing/validation-checklist.md)
 
-1. **Login como admin**
-   - Acessar http://localhost:5173
-   - Credenciais: admin / admin123
-   - **Expectativa:** Menu com 3 opções (Admin, Vendas, Meu Perfil)
-
-2. **Verificar Network Tab**
-   - Abrir DevTools → Network
-   - Verificar que `remoteEntry.js` dos 3 remotes foram carregados
-
-3. **Navegar para Admin Dashboard**
-   - Clicar em "Administração"
-   - **Expectativa:** Dashboard carrega com sucesso
-
-4. **Logout e Login como sales**
-   - Fazer logout
-   - Login: sales / sales123
-   - **Expectativa:** Menu com 2 opções (Vendas, Meu Perfil)
-
-5. **Verificar Network Tab Novamente**
-   - **Expectativa:** Apenas 2 `remoteEntry.js` (sales e user)
-   - **Expectativa:** Admin remoteEntry NÃO foi carregado
-
-6. **Tentar Acessar Admin Diretamente**
-   - Navegar para http://localhost:5173/admin
-   - **Expectativa:** "Access Denied" ou redirecionamento
+Problemas conhecidos e workarounds:
+[docs/testing/known-issues.md](docs/testing/known-issues.md)
 
 ---
 

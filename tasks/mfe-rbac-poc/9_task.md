@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 parallelizable: false
 blocked_by: ["6.0", "7.0", "8.0"]
 ---
@@ -34,41 +34,41 @@ Validar a integração completa do sistema, testando todos os fluxos end-to-end 
 ## Subtarefas
 
 ### Preparação do Ambiente
-- [ ] 9.1 Criar script `start-all.sh` para iniciar todos os serviços
-- [ ] 9.2 Atualizar `docker-compose.yml` para incluir todos os serviços
-- [ ] 9.3 Criar arquivo `.env` com todas as variáveis necessárias
-- [ ] 9.4 Documentar portas utilizadas por cada serviço
+- [x] 9.1 Criar script `start-all.sh` para iniciar todos os serviços
+- [x] 9.2 Atualizar `docker-compose.yml` para incluir todos os serviços
+- [x] 9.3 Criar arquivo `.env` com todas as variáveis necessárias
+- [x] 9.4 Documentar portas utilizadas por cada serviço
 
 ### Testes de Autenticação
-- [ ] 9.5 Testar login com usuário ADMIN (ana@corp.com)
-- [ ] 9.6 Testar login com usuário SALES (carlos@corp.com)
-- [ ] 9.7 Testar login com usuário USER (joao@corp.com)
-- [ ] 9.8 Testar logout e limpeza de sessão
-- [ ] 9.9 Testar silent refresh de tokens
+- [x] 9.5 Testar login com usuário ADMIN (ana@corp.com)
+- [x] 9.6 Testar login com usuário SALES (carlos@corp.com)
+- [x] 9.7 Testar login com usuário USER (joao@corp.com)
+- [x] 9.8 Testar logout e limpeza de sessão
+- [x] 9.9 Testar silent refresh de tokens
 
 ### Testes de RBAC
-- [ ] 9.10 Validar menu para ADMIN (3 opções: Admin, Sales, User)
-- [ ] 9.11 Validar menu para SALES (2 opções: Sales, User)
-- [ ] 9.12 Validar menu para USER (1 opção: User)
-- [ ] 9.13 Verificar network tab: ADMIN não faz request para remotes não autorizados
-- [ ] 9.14 Testar acesso direto a URL não autorizada
+- [x] 9.10 Validar menu para ADMIN (3 opções: Admin, Sales, User)
+- [x] 9.11 Validar menu para SALES (2 opções: Sales, User)
+- [x] 9.12 Validar menu para USER (1 opção: User)
+- [x] 9.13 Verificar network tab: ADMIN não faz request para remotes não autorizados
+- [x] 9.14 Testar acesso direto a URL não autorizada
 
 ### Testes de Carregamento Dinâmico
-- [ ] 9.15 Validar carregamento do Admin Remote para ADMIN
-- [ ] 9.16 Validar carregamento do Sales Remote para SALES
-- [ ] 9.17 Validar carregamento do User Remote para todos
-- [ ] 9.18 Testar lazy loading (código só baixa ao navegar)
-- [ ] 9.19 Testar error boundary com remote indisponível
+- [x] 9.15 Validar carregamento do Admin Remote para ADMIN
+- [x] 9.16 Validar carregamento do Sales Remote para SALES
+- [x] 9.17 Validar carregamento do User Remote para todos
+- [x] 9.18 Testar lazy loading (código só baixa ao navegar)
+- [x] 9.19 Testar error boundary com remote indisponível
 
 ### Testes de Performance
-- [ ] 9.20 Medir Time to Interactive do Host (meta: < 3s)
-- [ ] 9.21 Medir tempo de carregamento de remote (meta: < 2s)
-- [ ] 9.22 Medir tempo de resposta do Manifest Service (meta: < 500ms)
+- [x] 9.20 Medir Time to Interactive do Host (meta: < 3s)
+- [x] 9.21 Medir tempo de carregamento de remote (meta: < 2s)
+- [x] 9.22 Medir tempo de resposta do Manifest Service (meta: < 500ms)
 
 ### Documentação
-- [ ] 9.23 Criar checklist de validação final
-- [ ] 9.24 Documentar problemas conhecidos e workarounds
-- [ ] 9.25 Atualizar README.md com instruções completas
+- [x] 9.23 Criar checklist de validação final
+- [x] 9.24 Documentar problemas conhecidos e workarounds
+- [x] 9.25 Atualizar README.md com instruções completas
 
 ## Sequenciamento
 
@@ -188,13 +188,15 @@ Para cada teste de acesso negado, verificar no DevTools (Network tab):
 
 ## Critérios de Sucesso
 
-- [ ] Todos os serviços iniciam sem erros
-- [ ] Fluxo de login funciona para todos os usuários de teste
-- [ ] Menu dinâmico exibe opções corretas por role
-- [ ] Remotes são carregados apenas quando autorizados
-- [ ] Network tab confirma que remotes não autorizados não são solicitados
-- [ ] Error boundaries funcionam corretamente
-- [ ] Silent refresh mantém sessão ativa
-- [ ] Performance dentro das metas estabelecidas
-- [ ] Documentação atualizada e completa
-- [ ] README.md com instruções de setup e execução
+- [x] Todos os serviços iniciam sem erros
+- [x] Fluxo de login funciona para todos os usuários de teste
+- [x] Menu dinâmico exibe opções corretas por role
+- [x] Remotes são carregados apenas quando autorizados
+- [x] Network tab confirma que remotes não autorizados não são solicitados
+- [x] Error boundaries funcionam corretamente
+- [x] Silent refresh mantém sessão ativa
+- [x] Performance dentro das metas estabelecidas
+- [x] Documentação atualizada e completa
+- [x] README.md com instruções de setup e execução
+
+✅ **TAREFA 9.0 CONCLUÍDA**
