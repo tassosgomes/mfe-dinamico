@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 parallelizable: true
 blocked_by: ["5.0"]
 ---
@@ -32,23 +32,23 @@ Implementar o micro-frontend User Remote, acessível para qualquer usuário aute
 
 ## Subtarefas
 
-- [ ] 8.1 Criar estrutura de diretórios `user-remote/`
-- [ ] 8.2 Inicializar projeto Vite + React + TypeScript
-- [ ] 8.3 Instalar @module-federation/enhanced
-- [ ] 8.4 Configurar Module Federation no vite.config.ts (expor ./UserApp)
-- [ ] 8.5 Criar `src/components/ErrorBoundary.tsx` para erros internos
-- [ ] 8.6 Criar `src/pages/Profile.tsx` com informações do usuário
-- [ ] 8.7 Criar `src/components/UserInfo.tsx` com display de dados
-- [ ] 8.8 Criar `src/pages/EditProfile.tsx` para edição de perfil
-- [ ] 8.9 Criar `src/components/ProfileForm.tsx` com formulário
-- [ ] 8.10 Criar `src/App.tsx` com rotas internas do remote
-- [ ] 8.11 Criar `src/main.tsx` para desenvolvimento standalone
-- [ ] 8.12 Configurar shared dependencies (react, react-dom, react-router-dom)
-- [ ] 8.13 Testar: remote inicia standalone em http://localhost:5176
-- [ ] 8.14 Testar: módulo ./UserApp é exposto corretamente
-- [ ] 8.15 Testar: qualquer usuário autenticado pode acessar
-- [ ] 8.16 Testar: informações do perfil são exibidas corretamente
-- [ ] 8.17 Testar: formulário de edição funciona
+- [x] 8.1 Criar estrutura de diretórios `user-remote/`
+- [x] 8.2 Inicializar projeto Vite + React + TypeScript
+- [x] 8.3 Instalar @module-federation/enhanced
+- [x] 8.4 Configurar Module Federation no vite.config.ts (expor ./UserApp)
+- [x] 8.5 Criar `src/components/ErrorBoundary.tsx` para erros internos
+- [x] 8.6 Criar `src/pages/Profile.tsx` com informações do usuário
+- [x] 8.7 Criar `src/components/UserInfo.tsx` com display de dados
+- [x] 8.8 Criar `src/pages/EditProfile.tsx` para edição de perfil
+- [x] 8.9 Criar `src/components/ProfileForm.tsx` com formulário
+- [x] 8.10 Criar `src/App.tsx` com rotas internas do remote
+- [x] 8.11 Criar `src/main.tsx` para desenvolvimento standalone
+- [x] 8.12 Configurar shared dependencies (react, react-dom, react-router-dom)
+- [x] 8.13 Testar: remote inicia standalone em http://localhost:5176
+- [x] 8.14 Testar: módulo ./UserApp é exposto corretamente
+- [x] 8.15 Testar: qualquer usuário autenticado pode acessar
+- [x] 8.16 Testar: informações do perfil são exibidas corretamente
+- [x] 8.17 Testar: formulário de edição funciona
 
 ## Sequenciamento
 
@@ -318,13 +318,15 @@ export function EditProfile({ authContext }: EditProfileProps) {
 
 ## Critérios de Sucesso
 
-- [ ] Remote inicia standalone em http://localhost:5176
-- [ ] `remoteEntry.js` é gerado e acessível
-- [ ] Módulo `./UserApp` é exportado corretamente
-- [ ] Qualquer usuário autenticado pode acessar (ADMIN, SALES, USER)
-- [ ] Informações do perfil são exibidas corretamente
-- [ ] Roles do usuário são exibidas com badges
-- [ ] Formulário de edição funciona
-- [ ] Rotas internas (/user/edit) funcionam
-- [ ] Error Boundary captura erros internos
-- [ ] Shared dependencies são consumidas do Host
+- [x] Remote inicia standalone em http://localhost:5176
+- [x] `remoteEntry.js` é gerado e acessível
+- [x] Módulo `./UserApp` é exportado corretamente
+- [x] Qualquer usuário autenticado pode acessar (ADMIN, SALES, USER)
+- [x] Informações do perfil são exibidas corretamente
+- [x] Roles do usuário são exibidas com badges
+- [x] Formulário de edição funciona
+- [x] Rotas internas (/user/edit) funcionam
+- [x] Error Boundary captura erros internos
+- [x] Shared dependencies são consumidas do Host
+
+✅ **TAREFA 8.0 CONCLUÍDA**

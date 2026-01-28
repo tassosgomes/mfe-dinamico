@@ -421,3 +421,8 @@ FodyWeavers.xsd
 host/dist/
 host/node_modules/
 host/.__mf__temp/
+
+# User Remote
+user-remote/dist/
+user-remote/node_modules/
+user-remote/.__mf__temp/
